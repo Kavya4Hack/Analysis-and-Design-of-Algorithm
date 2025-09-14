@@ -603,3 +603,54 @@
     
 //     return 0;
 // }
+// Insertoin sort
+// #include <stdio.h>
+// void insertion(int arr[], int n){
+//     for(int i=1;i<n;i++){
+//         int key = arr[i];
+//         int j = i -1;
+//         while(arr[j]>key && j>=0){
+//             arr[j+1] = arr[j];
+//             j = j-1;
+//         }
+//         arr[j+1] = key;
+//     }
+// }
+// int main(){
+    
+//     return 0;
+// }
+// Selection Sort
+// #include <stdio.h>
+// void selection(int arr[], int n){
+//     for(int i=0;i<n-1;i++){
+//         int min_idx = i;
+//         for(int j=i+1;j<n;j++){
+//             if(arr[j]<arr[min_idx]){
+//             min_idx = j;
+//             }
+//         }
+//         int temp = arr[i];
+//         arr[i] = arr[min_idx];
+//         arr[min_idx] = temp;
+//     }
+// }
+// void printArray(int arr[], int n){
+//     for(int i =0;i<n;i++){
+//         printf("%d ",arr[i]);
+//     }
+// }
+// int main(){
+    
+//     return 0;
+// }
+
+// Quick Sort
+#include <stdio.h>
+void swap(int *arr, int i, int j){
+    
+}
+int main(){
+    
+    return 0;
+}
