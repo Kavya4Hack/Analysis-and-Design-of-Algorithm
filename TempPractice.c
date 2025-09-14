@@ -645,12 +645,54 @@
 //     return 0;
 // }
 
-// Quick Sort
-#include <stdio.h>
-void swap(int *arr, int i, int j){
+// Bubble Sort
+// #include <stdio.h>
+// void swap(int *arr, int i, int j){
+//     int temp = arr[i];
+//     arr[i] = arr[j];
+//     arr[j] = temp;
+// }
+// void bubbleSort(int arr[], int n){
+//     for(int i=0;i<n-1;i++){
+//         for(int j=0;j<n-1-i;j++){
+//             if(arr[j]>arr[j+1]){
+//                 swap(arr,j,j+1);
+//             }
+//         }
+//     }
+// }
+// int main(){
     
-}
-int main(){
+//     return 0;
+// }
+
+// Quick sort
+// #include <stdio.h>
+// void swap(int *a, int *b){
+//     int temp = *a;
+//     *a = *b;
+//     *b = temp;
+// }
+// int partition(int arr[], int low, int high){
+//     int pivot = arr[high];
+//     int i = low-1;
+//     for(int j=low;j<high;j++){
+//         if(arr[j]<=pivot){
+//             i++;
+//             swap(&arr[i],&arr[j]);
+//         }
+//     }
+//     swap(&arr[i+1],&arr[high]);
+//     return i+1;
+// }
+// void quickSort(int arr[],int low,int high){
+//     if(low<high){
+//         int pi = partition(arr,low,high);
+//         quickSort(arr,low,pi-1);
+//         quickSort(arr,pi+1,high);
+//     }
+// }
+// int main(){
     
-    return 0;
-}
+//     return 0;
+// }
