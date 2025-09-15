@@ -915,3 +915,106 @@
 //     printArray(arr,n);
 //     return 0;
 // }
+
+// #include <stdio.h>
+// void merge(int left[], int right[], int merged[], int nleft, int nright){
+//     int i=0,j=0,k=0;
+//     while(i<nleft && j<nright){
+//         if(left[i]<=right[j]){
+//             merged[k++] = left[i++];
+//         }else{
+//             merged[k++] = right[j++];
+//         }
+//     }
+//     while(i<nleft){
+//         merged[k++] = left[i++];
+//     }
+//     while(j<nright){
+//         merged[k++] = right[j++];
+//     }
+// }
+// int main(){
+//     int left[] = {1,3,5,7};
+//     int right[] = {2,4,6,8,10};
+//     int merged[9];
+
+//     int nleft = sizeof(left) / sizeof(left[0]);
+//     int nright = sizeof(right) / sizeof(right[0]);
+
+//     printf("Left Array: ");
+//     for(int i=0;i<nleft;i++){
+//         printf("%d ",left[i]);
+//     }
+//     printf("\nRight Array: ");
+//     for(int i=0;i<nright;i++){
+//         printf("%d ",right[i]);
+//     }
+//     printf("\n");
+//     merge(left,right,merged,nleft,nright);
+//     printf("Merger Array:");
+//     for(int i=0;i<nleft+nright;i++){
+//         printf("%d ", merged[i]);
+//     }
+//     return 0;
+// }
+
+// Factorial iterative
+// #include <stdio.h>
+// #include <time.h>
+
+// int main(){
+//     double ctime;
+//     clock_t start, end;
+//     int n;
+//     printf("Enter a number for factorial: ");
+//     scanf("%d",&n);
+//     start = clock();
+//     int fact=1;
+//     for(int i=1;i<=n;i++){
+//         fact = fact * i;
+//     }
+//     printf("The factorial is %d\n",fact);
+//     end = clock();
+//     ctime = (double)(end-start) / CLOCKS_PER_SEC;
+//     printf("Output returned in %f seconds.",ctime);
+//     return 0;
+// }
+// Factorail recursive
+// #include <stdio.h>
+// #include <time.h>
+// int factorial(int n){
+//     if(n>0){
+//         return n*factorial(n-1);
+//     }else{
+//         return 1;
+//     }
+// }
+// int main(){
+//     double ctime;
+//     clock_t start, end;
+//     int n;
+//     printf("Enter a number for factorial: ");
+//     scanf("%d",&n);
+//     start = clock();
+//     int a = factorial(n);
+//     end = clock();
+//     ctime = (double)(end-start) / CLOCKS_PER_SEC;
+//     printf("Output return in %f seconds.",ctime);
+//     return 0;
+// }
+// Linear search
+#include <stdio.h>
+#include <time.h>
+int linearSearch(int arr[], int n, int key, int *comparision){
+    for(int i=0;i<n;i++){
+        (*comparision)++;
+        if(arr[i]==key){
+            return i;
+        }
+    }
+    return -1;
+}
+int main(){
+    
+    return 0;
+}
