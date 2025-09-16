@@ -5,26 +5,21 @@
 int arr[256];
 
 // Binary Search
-int binarySearch(int n, int num)
-{
+int binarySearch(int n, int num){
     int left = 0, right = n - 1;
     int no_of_Comparison = 0;
 
-    while (left <= right)
-    {
+    while (left <= right){
         no_of_Comparison++;
         int mid = (left + right) / 2;
-        if (arr[mid] == num)
-        {
+        if (arr[mid] == num){
             printf("In Binary Search: Number %d found at index %d\n", num, mid);
             return no_of_Comparison;
         }
-        else if (arr[mid] < num)
-        {
+        else if (arr[mid] < num){
             left = mid + 1;
         }
-        else
-        {
+        else{
             right = mid - 1;
         }
     }
@@ -33,16 +28,13 @@ int binarySearch(int n, int num)
 }
 
 // Generate array of size elements (1 to size)
-void generateArray(int size)
-{
-    for (int i = 0; i < size; i++)
-    {
+void generateArray(int size){
+    for (int i = 0; i < size; i++){
         arr[i] = i + 1;
     }
 }
 
-void benchmarkBinary(int size)
-{
+void benchmarkBinary(int size){
     clock_t start, end;
     double time_taken;
 
@@ -69,14 +61,12 @@ void benchmarkBinary(int size)
     printf("Average Case: Comparisons = %d, Time = %.6f sec\n", binaryAvg, time_taken);
 }
 
-int main()
-{
+int main(){
     int size;
     printf("Enter the size of the array: ");
     scanf("%d", &size);
 
-    if (size > 256)
-    {
+    if (size > 256){
         printf("Size exceeds maximum limit of 256. Setting size to 256.\n");
         size = 256;
     }
