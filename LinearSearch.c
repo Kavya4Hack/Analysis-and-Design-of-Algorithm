@@ -1,38 +1,77 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 
-int linearSearch(int arr[], int n, int key, int*comparisons){
-    for(int i=0;i<n;i++){
-        (*comparisons)++;
-        if(arr[i] == key){
-            return i;
+int arr[256];
+
+// Linear Search
+int linearSearch(int n, int num)
+{
+    int no_of_Comparison = 0;
+    for (int i = 0; i < n; i++)
+    {
+        no_of_Comparison++;
+        if (arr[i] == num)
+        {
+            printf("In Linear Search: Number %d found at index %d\n", num, i);
+            return no_of_Comparison;
         }
     }
-    return -1;
+    printf("Number %d not found in the array.\n", num);
+    return no_of_Comparison;
 }
-int main(){
-    int n, key, index, comparisons;
-    printf("Enter size of array: ");
-    scanf("%d",&n);
-    int arr[n];
-    printf("Enter %d elements: ",n);
-    for(int i=0;i<n;i++){
-        scanf("%d",&arr[i]);
-    }
-    printf("Enter the number to search: ");
-    scanf("%d",&key);
-    comparisons = 0;
-    clock_t start_time = clock();
-    index = linearSearch(arr,n,key,&comparisons);
-    clock_t end_time = clock();
-    double time_taken = (double)(end_time - start_time) / CLOCKS_PER_SEC;
 
-    if(index != -1){
-        printf("Linear Search: Number %d found at index %d\n",key,index);
+// Generate array of size elements (1 to size)
+void generateArray(int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        arr[i] = i + 1;
     }
-    else{
-        printf("Linear Search: Number %d not found\n",key);
+}
+
+void benchmarkLinear(int size)
+{
+    clock_t start, end;
+    double time_taken;
+
+    printf("\n--- LINEAR SEARCH ---\n");
+    // Best Case (First element)
+    start = clock();
+    int linearBest = linearSearch(size, arr[0]);
+    end = clock();
+    time_taken = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("Best Case: Comparisons = %d, Time = %.6f sec\n", linearBest, time_taken);
+
+    // Worst Case (Not present)
+    start = clock();
+    int linearWorst = linearSearch(size, -1);
+    end = clock();
+    time_taken = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("Worst Case: Comparisons = %d, Time = %.6f sec\n", linearWorst, time_taken);
+
+    // Average Case (Middle element)
+    start = clock();
+    int linearAvg = linearSearch(size, arr[size / 2]);
+    end = clock();
+    time_taken = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("Average Case: Comparisons = %d, Time = %.6f sec\n", linearAvg, time_taken);
+}
+
+int main()
+{
+    int size;
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+
+    if (size > 256)
+    {
+        printf("Size exceeds maximum limit of 256. Setting size to 256.\n");
+        size = 256;
     }
-    printf("Comparisons: %d, Time: %lf sec\n",comparisons, time_taken);
+
+    generateArray(size);
+    benchmarkLinear(size);
+
     return 0;
 }
