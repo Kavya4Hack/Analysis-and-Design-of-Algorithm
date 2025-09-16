@@ -5,57 +5,52 @@
 int arr[256];
 
 // Linear Search
-int linearSearch(int n, int num)
-{
+int linearSearch(int n, int num) {
     int no_of_Comparison = 0;
-    for (int i = 0; i < n; i++)
-    {
-        no_of_Comparison++;
-        if (arr[i] == num)
-        {
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == num) {
             printf("In Linear Search: Number %d found at index %d\n", num, i);
             return no_of_Comparison;
         }
+        no_of_Comparison++;
     }
     printf("Number %d not found in the array.\n", num);
     return no_of_Comparison;
 }
 
 // Generate array of size elements (1 to size)
-void generateArray(int size)
-{
-    for (int i = 0; i < size; i++)
-    {
+int generateArray(int size) {
+    for (int i = 0; i < size; i++) {
         arr[i] = i + 1;
     }
 }
 
-void benchmarkLinear(int size)
-{
+void benchmark(int size) {
     clock_t start, end;
-    double time_taken;
+    double ctime;
 
     printf("\n--- LINEAR SEARCH ---\n");
+
     // Best Case (First element)
     start = clock();
     int linearBest = linearSearch(size, arr[0]);
     end = clock();
-    time_taken = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("Best Case: Comparisons = %d, Time = %.6f sec\n", linearBest, time_taken);
+    ctime = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("Best Case: Comparisons = %d, Time = %.6f sec\n", linearBest, ctime);
 
     // Worst Case (Not present)
     start = clock();
     int linearWorst = linearSearch(size, -1);
     end = clock();
-    time_taken = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("Worst Case: Comparisons = %d, Time = %.6f sec\n", linearWorst, time_taken);
+    ctime = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("Worst Case: Comparisons = %d, Time = %.6f sec\n", linearWorst, ctime);
 
     // Average Case (Middle element)
     start = clock();
     int linearAvg = linearSearch(size, arr[size / 2]);
     end = clock();
-    time_taken = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("Average Case: Comparisons = %d, Time = %.6f sec\n", linearAvg, time_taken);
+    ctime = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("Average Case: Comparisons = %d, Time = %.6f sec\n", linearAvg, ctime);
 }
 
 int main()
@@ -71,7 +66,7 @@ int main()
     }
 
     generateArray(size);
-    benchmarkLinear(size);
+    benchmark(size);
 
     return 0;
 }
