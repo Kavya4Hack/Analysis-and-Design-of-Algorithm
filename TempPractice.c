@@ -1381,66 +1381,593 @@
 //     return 0;
 // }
 // Binary Search
-#include <stdio.h>
-#include <time.h>
-#include <stdlib.h>
-int arr[256];
+// #include <stdio.h>
+// #include <time.h>
+// #include <stdlib.h>
+// int arr[256];
 
-int binarySearch(int n, int num){
-    int left=0, right=n-1;
-    int no_of_comparison = 0;
+// int binarySearch(int n, int num){
+//     int left=0, right=n-1;
+//     int no_of_comparison = 0;
 
-    while(left <= right){
-        no_of_comparison++;
-        int mid = (left+right) / 2;
-        if(arr[mid] == num){
-            printf("In binary search: Number %d found at index %d\n",num,mid);
-            return no_of_comparison;
-        }
-        else if(arr[mid] < num){
-            left = mid+1;
-        }
-        else{
-            right = mid -1;
-        }
-    }
-    printf("Number %d not found\n",num);
-    return no_of_comparison;
-}
-void generateArray(int size){
-    for(int i=0;i<size;i++){
-        arr[i] = i+1;
-    }
-}
-void benchmark(int size){
-    clock_t start, end;
-    double ctime;
+//     while(left <= right){
+//         no_of_comparison++;
+//         int mid = (left+right) / 2;
+//         if(arr[mid] == num){
+//             printf("In binary search: Number %d found at index %d\n",num,mid);
+//             return no_of_comparison;
+//         }
+//         else if(arr[mid] < num){
+//             left = mid+1;
+//         }
+//         else{
+//             right = mid -1;
+//         }
+//     }
+//     printf("Number %d not found\n",num);
+//     return no_of_comparison;
+// }
+// void generateArray(int size){
+//     for(int i=0;i<size;i++){
+//         arr[i] = i+1;
+//     }
+// }
+// void benchmark(int size){
+//     clock_t start, end;
+//     double ctime;
 
-    printf("\nBinary Search\n");
-    start = clock();
-    int binaryBest = binarySearch(size,arr[size/2]);
-    end = clock();
-    ctime = (double)(end-start)/CLOCKS_PER_SEC;
-    printf("Best case: Comparison = %d Time taken = %.6f\n",binaryBest,ctime);
+//     printf("\nBinary Search\n");
+//     start = clock();
+//     int binaryBest = binarySearch(size,arr[size/2]);
+//     end = clock();
+//     ctime = (double)(end-start)/CLOCKS_PER_SEC;
+//     printf("Best case: Comparison = %d Time taken = %.6f\n",binaryBest,ctime);
 
-    start = clock();
-    int binaryWorst = binarySearch(size,-1);
-    end = clock();
-    ctime = (double)(end-start)/CLOCKS_PER_SEC;
-    printf("Worst case: Comparison = %d Time taken = %.6f\n",binaryWorst,ctime);
+//     start = clock();
+//     int binaryWorst = binarySearch(size,-1);
+//     end = clock();
+//     ctime = (double)(end-start)/CLOCKS_PER_SEC;
+//     printf("Worst case: Comparison = %d Time taken = %.6f\n",binaryWorst,ctime);
 
-    start = clock();
-    int binaryAvg = binarySearch(size,arr[size/4]);
-    end = clock();
-    ctime = (double)(end-start)/CLOCKS_PER_SEC;
-    printf("Avg case: Comparison = %d Time taken = %.6f\n",binaryAvg,ctime);
+//     start = clock();
+//     int binaryAvg = binarySearch(size,arr[size/4]);
+//     end = clock();
+//     ctime = (double)(end-start)/CLOCKS_PER_SEC;
+//     printf("Avg case: Comparison = %d Time taken = %.6f\n",binaryAvg,ctime);
 
-}
-int main(){
-    int size;
-    printf("Enter the size of the array: ");
-    scanf("%d",&size);
-    generateArray(size);
-    benchmark(size);
-    return 0;
-}
+// }
+// int main(){
+//     int size;
+//     printf("Enter the size of the array: ");
+//     scanf("%d",&size);
+//     generateArray(size);
+//     benchmark(size);
+//     return 0;
+// }
+
+// Bubble sort
+// #include <stdio.h>
+// void swap(int *arr, int i, int j){
+//     int temp = arr[i];
+//     arr[i] = arr[j];
+//     arr[j] = temp;
+// }
+// void bubbleSort(int arr[], int n){
+//     for(int i=0;i<n-1;i++){
+//         for(int j=0;j<n-1-i;j++){
+//             if(arr[j] > arr[j+1]){
+//                 swap(arr,j,j+1);
+//             }
+//         }
+//     }
+// }
+// void printArray(int arr[], int n){
+//     for(int i=0;i<n;i++){
+//         printf("%d ",arr[i]);
+//     }
+// }
+// int main(){
+//     int arr[] = {15,22,40,1,2,3,55};
+//     int n= sizeof(arr) / sizeof(arr[0]);
+//     printf("Unsorted Array: ");
+//     printArray(arr,n);
+//     printf("\n");
+//     printf("Sorted Array: ");
+//     bubbleSort(arr,n);
+//     printArray(arr,n);
+//     return 0;
+// }
+// insertion sort
+// #include <stdio.h>
+// void insertion(int arr[], int n){
+//     for(int i=1;i<n;i++){
+//         int key = arr[i];
+//         int j = i-1;
+//         while(arr[j]>key && j>=0){
+//             arr[j+1] = arr[j];
+//             j = j-1;
+//         }
+//         arr[j+1] = key;
+//     }
+// }
+// void printArray(int arr[], int n){
+//     for(int i=0;i<n;i++){
+//         printf("%d ",arr[i]);
+//     }
+// }
+// int main(){
+//     int arr[] = {15,22,40,1,2,3,55};
+//     int n = sizeof(arr) / sizeof(arr[0]);
+//     printf("Unsorted Array: ");
+//     printArray(arr,n);
+//     printf("\n");
+//     printf("Sorted Array: ");
+//     insertion(arr, n);
+//     printArray(arr,n);
+//     return 0;
+// }
+
+// Selection sort
+// #include <stdio.h>
+// void selection(int arr[], int n){
+//     for(int i=0;i<n-1;i++){
+//         int min_idx = i;
+//         for(int j = i+1;j<n;j++){
+//             if(arr[j] < arr[min_idx]){
+//                 min_idx = j;
+//             }
+//         }
+//         int temp = arr[i];
+//         arr[i] = arr[min_idx];
+//         arr[min_idx] = temp;
+//     }
+// }
+// void printArray(int arr[], int n){
+//     for(int i=0;i<n;i++){
+//         printf("%d ",arr[i]);
+//     }
+// }
+// int main(){
+//     int arr[] = {15,22,40,1,2,3,55};
+//     int n = sizeof(arr) / sizeof(arr[0]);
+//     printf("Unsorted Array: ");
+//     printArray(arr,n);
+//     printf("\n");
+//     printf("Sorted Array: ");
+//     selection(arr, n);
+//     printArray(arr,n);
+//     return 0;
+// }
+
+// Merge sort
+// #include <stdio.h>
+// void merge(int left[], int right[], int merged[], int nleft, int nright){
+//     int i=0,j=0,k=0;
+//     while(i<nleft && j<nright){
+//         if(left[i] <= right[j]){
+//             merged[k++] = left[i++];
+//         }else{
+//             merged[k++] = right[j++];
+//         }
+//     }
+//     while(i<nleft){
+//         merged[k++] = left[i++];
+//     }
+//     while(j<nright){
+//         merged[k++] = right[j++];
+//     }
+// }
+// int main(){
+//     int left[] = {1,3,5,7};
+//     int right[] = {2,4,6,8,10};
+//     int merged[9];
+
+//     int nleft = sizeof(left) / sizeof(left[0]);
+//     int nright = sizeof(right) / sizeof(right[0]);
+
+//     printf("\nLeft Array: ");
+//     for(int i=0;i<nleft;i++){
+//         printf("%d ",left[i]);
+//     }
+//     printf("\nRight Array: ");
+//     for(int i=0;i<nright;i++){
+//         printf("%d ",right[i]);
+//     }
+//     merge(left,right,merged,nleft,nright);
+//     printf("\nMerged Array: ");
+//     for(int i=0;i<nleft+nright;i++){
+//         printf("%d ",merged[i]);
+//     }
+//     return 0;
+// }
+// linear search
+// #include <stdio.h>
+// #include <time.h>
+// #include <stdlib.h>
+// int arr[256];
+
+// int linearSearch(int n, int num){
+//     int no_of_comparison = 0;
+//     for(int i=0;i<n;i++){
+//         if(arr[i] == num){
+//             printf("In Linear search: Number %d found at index %d\n",num,i);
+//             return no_of_comparison;
+//         }
+//     }
+//     printf("Number %d not found in the array.",num);
+// }
+// void generateArray(int size){
+//     for(int i=0;i<size;i++){
+//         arr[i] = i + 1;
+//     }
+// }
+// void benchmark(int size){
+//     double ctime;
+//     clock_t start, end;
+//     start = clock();
+//     int linesarBest = linearSearch(size,arr[0]);
+//     end = clock();
+//     ctime = (double)(end-start) / CLOCKS_PER_SEC;
+//     printf("Best Case: Comparision = %d, Time = %.6f sec\n",linesarBest,ctime);
+
+//     start = clock();
+//     int linesarWorst = linearSearch(size,-1);
+//     end = clock();
+//     ctime = (double)(end-start) / CLOCKS_PER_SEC;
+//     printf("Worst Case: Comparision = %d, Time = %.6f sec\n",linesarWorst,ctime);
+
+//     start = clock();
+//     int linesarAvg = linearSearch(size,arr[size/2]);
+//     end = clock();
+//     ctime = (double)(end-start) / CLOCKS_PER_SEC;
+//     printf("Avg Case: Comparision = %d, Time = %.6f sec\n",linesarAvg,ctime);
+
+// }
+// int main(){
+//     int size;
+//     printf("Enter the size of array: ");
+//     scanf("%d",&size);
+//     generateArray(size);
+//     benchmark(size);   
+//     return 0;
+// }
+// Binary Search
+// #include <stdio.h>
+// #include <stdlib.h>
+// #include <time.h>
+// int arr[256];
+
+// int binarySearch(int n, int num){
+
+// }
+
+// int main(){
+    
+//     return 0;
+// }
+// DFs
+// #include <stdio.h>
+// #define MAX 100
+
+// int adjMatrix[MAX][MAX];
+// int visited[MAX];
+
+// void DFS(int node,int vertices){
+//     visited[node] = 1;
+//     printf("%d ",node);
+//     for(int i=0;i<vertices;i++){
+//         if(adjMatrix[node][i]==1 && !visited[i]){
+//             DFS(i, vertices);
+//         }
+//     }
+// }
+// int main(){
+//     int vertices, edges, u,v, start=0;
+//     printf("Enter the number of vertices: ");
+//     scanf("%d",&vertices);
+
+//     printf("Enter the number of edges: ");
+//     scanf("%d",&edges);
+
+//     for(int i=0;i<vertices;i++){
+//         for(int j=0;j<vertices;j++){
+//             adjMatrix[i][j] = 0;
+//         }
+//     }
+//     printf("Enter the edges (u v): \n");
+//     for(int i=0;i<edges;i++){
+//         scanf("%d %d",&u, &v);
+//         adjMatrix[u][v] = 1;
+//         adjMatrix[v][u] = 1;
+//     }
+//     for(int i=0;i<vertices;i++){
+//         visited[i] = 0;
+//     }
+//     printf("DFS Traversal: ");
+//     DFS(start, vertices);
+//     return 0;
+// }
+// Linear search
+// #include <stdio.h>
+// #include <time.h>
+// #include <stdlib.h>
+// int arr[256];
+
+// int linearSearch(int n, int num){
+//     int no_of_comparison = 0;
+//     for(int i=0;i<n;i++){
+//         if(arr[i] == num){
+//             printf("In leinear search: Number %d found at index %d\n",num,i);
+//             return no_of_comparison;
+//         }
+//         no_of_comparison++;
+//     }
+//     printf("No %d did not found in the aray\n",num);
+//     return no_of_comparison;
+// }
+// void generateArray(int size){
+//     for(int i=0;i<size;i++){
+//         arr[i] = i + 1;
+//     }
+// }
+// void benchmark(int size){
+//     double ctime;
+//     clock_t start, end;
+//     start = clock();
+//     int linearBest = linearSearch(size,arr[0]);
+//     end = clock();
+//     ctime = (double)(end-start) / CLOCKS_PER_SEC;
+//     printf("Best case: Comparision=%d and time= %.6f",linearBest,ctime);
+
+//     start = clock();
+//     int linearWorst = linearSearch(size,-1);
+//     end = clock();
+//     ctime = (double)(end-start) / CLOCKS_PER_SEC;
+//     printf("Worst case: Comparision=%d and time= %.6f",linearWorst,ctime);
+
+//     start = clock();
+//     int linearAvg = linearSearch(size,arr[size/2]);
+//     end = clock();
+//     ctime = (double)(end-start) / CLOCKS_PER_SEC;
+//     printf("Avg case: Comparision=%d and time= %.6f",linearAvg,ctime);
+// }
+
+// int main(){
+//     int size;
+//     printf("Enter the size of array: ");
+//     scanf("%d",&size);
+//     generateArray(size);
+//     benchmark(size);
+
+//     return 0;
+// }
+
+// binary search
+// #include <stdio.h>
+// #include <time.h>
+// #include <stdlib.h>
+// int arr[256];
+
+// int binarySearch(int n, int num){
+//     int left=0, right=n-1;
+//     int no_of_comparison = 0;
+//     while(left <= right){
+//         no_of_comparison++;
+//         int mid = (left+right)/2;
+//         if(arr[mid] == num){
+//             printf("In binary search: Number %d found at index %d\n",num,mid);
+//             return no_of_comparison;
+//         }
+//         else if(arr[mid] < num){
+//             left = mid + 1;
+//         }else{
+//             right = mid-1;
+//         }
+//     }
+//     printf("Number %d not found in the array.",num);
+//     return no_of_comparison;
+// }
+// void generateArray(int size){
+//     for(int i=0;i<size;i++){
+//         arr[i] = i + 1;
+//     }
+// }
+// void benchmark(int size){
+//     double ctime;
+//     clock_t start, end;
+
+//     start = clock();
+//     int binaryBest = binarySearch(size,arr[size/2]);
+//     end = clock();
+//     ctime = (double)(end-start) / CLOCKS_PER_SEC;
+//     printf("Best case : Comparison=%d time= %.5f\n",binaryBest,ctime);
+
+//     start = clock();
+//     int binaryWorst = binarySearch(size,-1);
+//     end = clock();
+//     ctime = (double)(end-start) / CLOCKS_PER_SEC;
+//     printf("Worst case : Comparison=%d time= %.5f\n",binaryWorst,ctime);
+
+//     start = clock();
+//     int binaryAvg = binarySearch(size,arr[size/4]);
+//     end = clock();
+//     ctime = (double)(end-start) / CLOCKS_PER_SEC;
+//     printf("Avg case : Comparison=%d time= %.5f\n",binaryAvg,ctime);
+
+// }
+// int main(){
+//     int size;
+//     printf("Enter the size of array: ");
+//     scanf("%d", &size);
+//     generateArray(size);
+//     benchmark(size);
+//     return 0;
+// }
+// DFS
+// #include <stdio.h>
+// #define MAX 100
+
+// int adjMatrix[MAX][MAX];
+// int visited[MAX];
+// void DFS(int node, int vertices){
+//     visited[node] = 1;
+//     printf("%d ",node);
+//     for(int i=0;i<vertices;i++){
+//         if(adjMatrix[node][i] == 1 && !visited[i]){
+//             DFS(i,vertices);
+//         }
+//     }
+// }
+// int main(){
+//     int vertices, edge, u, v, start=0;
+//     printf("Enter the number of vertices: ");
+//     scanf("%d",&vertices);
+//     printf("Enter the number of edges: ");
+//     scanf("%d",&edge);
+
+//     for(int i=0;i<vertices;i++){
+//         for(int j=0;j<vertices;j++){
+//             scanf("%d %d",&u,&v);
+//             adjMatrix[u][v] = 1;
+//             adjMatrix[v][u] = 1;
+//         }
+//         for(int i=0;i<vertices;i++){
+//             visited[i] = 0;
+//         }
+//     }
+//     return 0;
+// 
+// #include <stdio.h>
+// void swap(int *a, int *b){
+//     int temp = *a;
+//     *a = *b;
+//     *b = temp;
+// }
+// int partition(int arr[], int low, int high){
+//     int pivot = arr[high];
+//     int i = low - 1;
+//     for(int j=low;j<high;j++){
+//         if(arr[j] <= pivot){
+//         i++;
+//         swap(&arr[i],&arr[j]);
+//         }
+//     }
+//     swap(&arr[i+1], &arr[high]);
+//     return i + 1;
+// }
+// void quickSort(int arr[], int low, int high){
+//     if(low<high){
+//         int pi = partition(arr, low, high);
+//         quickSort(arr, low, pi-1);
+//         quickSort(arr,pi+1,high);
+//     }
+// }
+// void printArray(int arr[], int n){
+//     for(int i=0;i<n;i++){
+//         printf("%d ",arr[i]);
+//     }
+// }
+// int main(){
+//     int arr[] = {10, 7, 8, 9, 1, 5};
+//     int n = sizeof(arr) / sizeof(arr[0]);
+    
+//     printf("Unsorted array: ");
+//     printArray(arr, n);
+//     printf("Sorted array:   ");
+//     quickSort(arr, 0, n - 1);
+//     printArray(arr, n);
+    
+//     return 0;
+// }
+
+// #include <stdio.h>
+// #include <time.h>
+// #include <stdlib.h>
+// int arr[256];
+// int linearSearch(int n, int num){
+//     int no_of_comparison = 0;
+//     for(int i=0;i<n;i++){
+//         if(arr[i] == num){
+//         printf("In linear search: Number %d found at index %d\n",num,i);
+//         return no_of_comparison;
+//         }
+//         no_of_comparison++;
+//     }
+//     printf("number %d not frond in the array,\n",num);
+//     return no_of_comparison;
+// }
+// void generateArray(int size){
+//     for(int i=0;i<size;i++){
+//         arr[i] = i + 1;
+//     }
+// }
+// void benchmark(int size){
+//     double ctime;
+//     clock_t start, end;
+
+//     start = clock();
+//     int linearBest = linearSearch(size,arr[0]);
+//     end = clock();
+//     ctime = (double)(end-start) / CLOCKS_PER_SEC;
+//     printf("In best case: comparison: %d time= %.6f",linearBest,ctime);
+// }
+
+// int main(){
+    
+//     return 0;
+// }
+// #include <stdio.h>
+// #include <time.h>
+// #include <stdlib.h>
+// int arr[256];
+
+// int binarySearch(int n, int num){
+//     int no_of_comparison = 0,left=0,right=n-1;
+//     while(left <= right){
+//         no_of_comparison++;
+//         int mid = (left+right)/2;
+//         if(arr[mid] == num){
+//             printf("In binary search: Number %d found at index %d\n",num,mid);
+//             return no_of_comparison;
+//         }
+//         else if(arr[mid] < num){
+//             left = mid + 1;
+//         }
+//         else{
+//             right = mid - 1;         
+//         }
+//     }
+// }
+// int main(){
+    
+//     return 0;
+// }
+
+// #include <stdio.h>
+// #define max 100
+// int adjMatrix[max][max];
+// int visited[max];
+// void DFS(int node, int vertices){
+//     visited[node] = 1;
+//     printf("%d ",node);
+//     for(int i=0;i<vertices;i++){
+//         if(adjMatrix[node][i] == 1 && !visited[i]){
+//             DFS(i, vertices);
+//         }
+//     }
+// }
+// int main(){
+//     int vertices, edges, v,u, start=0;
+
+//     printf("Enter the number of vertices: ");
+//     scanf("%d",&vertices);
+//     printf("Enter no of edges: ");
+//     scanf("%d",&edges);
+
+//     for(int i=0;i<vertices;i++){
+//         for(int j =0;j<vertices;j++){
+//             adjMatrix[i][j] = 0;
+//         }
+//     }
+//     return 0;
+// }
