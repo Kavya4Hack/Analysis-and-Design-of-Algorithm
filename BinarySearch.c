@@ -33,7 +33,7 @@ void generateArray(int size){
         arr[i] = i + 1;
     }
 }
-
+// benchmark function will have the best worst and avg cases in it and that will be along with the time.
 void benchmarkBinary(int size){
     clock_t start, end;
     double time_taken;
