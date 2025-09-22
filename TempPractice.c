@@ -2042,76 +2042,76 @@
 
 //     return 0;
 // }
-#include <stdio.h>
+// #include <stdio.h>
 
-#define MAX 100
-#define INF 999
-int graph[MAX][MAX];
-int visited[MAX];
+// #define MAX 100
+// #define INF 999
+// int graph[MAX][MAX];
+// int visited[MAX];
 
-int prims(int vertices, int start){
+// int prims(int vertices, int start){
 
-    int minCost = 0;
-    int minEdge_Cost = INF;
-    int u , v;
-    visited[start] = 1;
+//     int minCost = 0;
+//     int minEdge_Cost = INF;
+//     int u , v;
+//     visited[start] = 1;
 
-    for (int count = 0; count < vertices - 1; count++){
-        minEdge_Cost = INF;
+//     for (int count = 0; count < vertices - 1; count++){
+//         minEdge_Cost = INF;
         
-        for (int i = 0; i < vertices; i++){
-            if (visited[i]) {
-                for (int j = 0; j < vertices; j++){
-                    if (graph[i][j] && !visited[j] && graph[i][j] < minEdge_Cost) {
-                        minEdge_Cost = graph[i][j];
-                        u = i;
-                        v = j;
-                    }
-                }
+//         for (int i = 0; i < vertices; i++){
+//             if (visited[i]) {
+//                 for (int j = 0; j < vertices; j++){
+//                     if (graph[i][j] && !visited[j] && graph[i][j] < minEdge_Cost) {
+//                         minEdge_Cost = graph[i][j];
+//                         u = i;
+//                         v = j;
+//                     }
+//                 }
                 
-            }
-        }
-        if (minEdge_Cost == INF) {
-            printf("No MST Possible!!\n");
-            return -1;
-        }
-        else {
-            visited[v] = 1;
-            minCost += minEdge_Cost;
-            printf("(%d -> %d) => %d\n" , u , v, minEdge_Cost);
-        }
-    }
-    return minCost;  
-}
+//             }
+//         }
+//         if (minEdge_Cost == INF) {
+//             printf("No MST Possible!!\n");
+//             return -1;
+//         }
+//         else {
+//             visited[v] = 1;
+//             minCost += minEdge_Cost;
+//             printf("(%d -> %d) => %d\n" , u , v, minEdge_Cost);
+//         }
+//     }
+//     return minCost;  
+// }
 
-int main(){
-    int vertices, edges, u, v, weight, start = 0;
+// int main(){
+//     int vertices, edges, u, v, weight, start = 0;
 
-    printf("Enter the number of vertices: ");
-    scanf("%d", &vertices);
+//     printf("Enter the number of vertices: ");
+//     scanf("%d", &vertices);
 
-    printf("Enter the number of edges: ");
-    scanf("%d", &edges);
+//     printf("Enter the number of edges: ");
+//     scanf("%d", &edges);
 
-    for (size_t i = 0; i < vertices; i++){
-        visited[i] = 0;
-    }
-    for (int i = 0; i < vertices; i++){
-        for (int j = 0; j < vertices; j++){
-            graph[i][j] = 0;
-        }
-    }
-    printf("Enter the Edges: (u,v,weight) \n");
-    for (int i = 0; i < edges; i++){
-        scanf("%d %d %d", &u, &v, &weight);
+//     for (size_t i = 0; i < vertices; i++){
+//         visited[i] = 0;
+//     }
+//     for (int i = 0; i < vertices; i++){
+//         for (int j = 0; j < vertices; j++){
+//             graph[i][j] = 0;
+//         }
+//     }
+//     printf("Enter the Edges: (u,v,weight) \n");
+//     for (int i = 0; i < edges; i++){
+//         scanf("%d %d %d", &u, &v, &weight);
 
-        graph[u][v] = weight;
-        graph[v][u] = weight;
-    }
-    int minCost = prims(vertices, start);
-    printf("minCost = %d\n", minCost);
-    return 0;
-}
+//         graph[u][v] = weight;
+//         graph[v][u] = weight;
+//     }
+//     int minCost = prims(vertices, start);
+//     printf("minCost = %d\n", minCost);
+//     return 0;
+// }
 // #include <stdio.h>
 
 // #define MAX 100
@@ -2269,3 +2269,47 @@ int main(){
 
 //     return 0;
 // }
+// #include <stdio.h>
+// void swap(int *a, int *b){
+//     int temp = *a;
+//     *a = *b;
+//     *b = temp;
+// }
+// int partition(int arr[], int low, int high){
+//     int pivot = arr[high];
+//     int i = low - 1;
+//     for(int j = low;j<high;j++){
+//         if(arr[j] <= pivot){
+//             i++;
+//             swap(&arr[i],&arr[j]);
+//         }
+//     }
+//     swap(&arr[i+1], &arr[high]);
+//     return i+1;
+// }
+// void quickSort(int arr[], int low, int high){
+//     if(low<high){
+//         int pi = partition(arr,low,high);
+//         quickSort(arr,low,pi-1);
+//         quickSort(arr,pi+1,high);
+//     }
+// }
+// void printArray(int arr[], int size){
+//     for(int i=0;i<size;i++){
+//         printf("%d ",arr[i]);
+//     }
+//     printf("\n");
+// }
+// int main(){
+//     int arr[] = {10,50,1,85,65,7};
+//     int n= sizeof(arr)/sizeof(arr[0]);
+//     printf("Unsorted array: ");
+//     printArray(arr, n);
+
+//     quickSort(arr, 0, n - 1);
+
+//     printf("Sorted array:   ");
+//     printArray(arr, n);
+//     return 0;
+// }
+
