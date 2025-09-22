@@ -24,7 +24,7 @@ int generateArray(int size) {
         arr[i] = i + 1;
     }
 }
-
+// benchmark function will conatin the cases i.e. best, worst and avg wich also include the time of completion.
 void benchmark(int size) {
     clock_t start, end;
     double ctime;
