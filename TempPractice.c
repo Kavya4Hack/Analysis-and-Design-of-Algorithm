@@ -2366,29 +2366,169 @@
 // }
 
 // Heap Sort
-#include <stdio.h>
-void heapify(int arr[], int n, int i){
-    int largest = i;
-    int left = 2*i+1;
-    int right = 2*i+2;
+// #include <stdio.h>
+// void heapify(int arr[], int n, int i){
+//     int largest = i;
+//     int left = 2*i+1;
+//     int right = 2*i+2;
     
-    if(left < n && arr[left] > arr[largest]){
-        largest = left;
-    }
-    if(right < n && arr[right] > arr[largest]){
-        largest = right;
-    }
-    if(largest != i){
-        int temp = arr[i];
-        arr[i] = arr[largest];
-        arr[largest] = temp;
-        heapify(arr,n,largest);
-    }
-}
-void heapsort(int arr[], int n){
+//     if(left < n && arr[left] > arr[largest]){
+//         largest = left;
+//     }
+//     if(right < n && arr[right] > arr[largest]){
+//         largest = right;
+//     }
+//     if(largest != i){
+//         int temp = arr[i];
+//         arr[i] = arr[largest];
+//         arr[largest] = temp;
+//         heapify(arr,n,largest);
+//     }
+// }
+// void heapsort(int arr[], int n){
     
-}
-int main(){
+// }
+// int main(){
     
-    return 0;
-}
+//     return 0;
+// }
+
+// Knapsack fractional
+// #include <stdio.h>
+
+// void swap(float *a, float *b){
+//     float temp = *a;
+//     *a = *b;
+//     *b = temp;
+// }
+// void fractionalKnapsack(float w[], float p[], float W, int n){
+//     float ratio[20], x[20], weight = 0, totalProfit = 0;
+//     int i,j;
+
+//     for(i = 0; i<n; i++){
+//         for(j = i+1; j<n; j++){
+//             if(ratio[i] < ratio[j]){
+//                 swap(&ratio[i], &ratio[j]);
+//                 swap(&w[i], &w[j]);
+//                 swap(&p[i], &p[j]);
+//             }
+//         }
+//     }
+//     for(i=0;i<n;i++){
+//         x[i] = 0.0;
+//     }
+//     i=0;
+//     while(weight < W && i<n){
+//         if(weight + w[i] <= W){
+//             x[i] = 1.0;
+//             weight += w[i];
+//             totalProfit += p[i];
+//         }else{
+            
+//         }
+//     }
+// }
+
+// int main(){
+    
+//     return 0;
+// }
+
+// Heap Sort
+
+// #include <stdio.h>
+
+// void heapify(int arr[], int n, int i){
+//     int largest = i;
+//     int left = 2*i+1;
+//     int right = 2*i+2;
+//     if(left<n && arr[left] > arr[largest]){
+//         largest = left;
+//     }
+//     if(right<n && arr[right] > arr[largest]){
+//         largest = right;
+//     }
+//     if(largest != i){
+//         int temp = arr[i];
+//         arr[i] = arr[largest];
+//         arr[largest] = temp;
+//         heapify(arr,n,largest);
+//     }
+// }
+// void heapSort(int arr[], int n){
+//     for(int i = n/2-1;i>=0;i--){
+//         heapify(arr,n,i);
+//     }
+//     for(int i=n-1;i>0;i--){
+//         int temp = arr[0];
+//         arr[0] = arr[i];
+//         arr[i] = temp;
+//         heapify(arr,i,0);
+//     }
+// }
+// void printArray(int arr[], int n){
+//     for(int i=0;i<n;i++){
+//         printf("%d ",arr[i]);
+//     }
+//     printf("\n");
+// }
+// int main(){
+//     int arr[] = {9,4,85,2,4,1,66,10,50};
+//     int n = sizeof(arr) / sizeof(arr[0]);
+//     printf("Unsorted Array: ");
+//     printArray(arr,n);
+//     heapSort(arr,n);
+
+//     printf("Sorted Array: ");
+//     printArray(arr,n);
+//     return 0;
+// }
+
+// hEAP SORT
+// #include <stdio.h>
+
+// void heapify(int arr[], int n, int i){
+//     int largest = i;
+//     int left = 2*i+1;
+//     int right = 2*i+2;
+//     if(left<n && arr[left] > arr[largest]){
+//         largest = left;
+//     }
+//     if(right<n && arr[right] > arr[largest]){
+//         largest = right;
+//     }
+//     if(largest != i){
+//         int temp = arr[i];
+//         arr[i] = arr[largest];
+//         arr[largest] = temp;
+//         heapify(arr,n,largest); 
+//     }
+// }
+// void heapsort(int arr[], int n){
+//     for(int i=n/2-1;i>=0;i--){
+//         heapify(arr,n,i);
+//     }
+//     for(int i=n-1;i>0;i--){
+//         int temp = arr[0];
+//         arr[0] = arr[i];
+//         arr[i] = temp;
+//         heapify(arr,i,0);
+//     }
+// }
+// void printArray(int arr[], int n){
+//     for(int i=0;i<n;i++){
+//         printf(" %d ",arr[i]);
+//     }
+//     printf("\n");
+// }
+// int main(){
+//     int arr[] = {10,11,52,2,30,88,56,41,22,37,1};
+//     int n = sizeof(arr)/ sizeof(arr[0]);
+//     printf("Unsorted Array: ");
+//     printArray(arr,n);
+//     heapsort(arr,n);
+
+//     printf("Sorted Array: ");
+//     printArray(arr,n);
+//     return 0;
+// }`
